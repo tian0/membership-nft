@@ -14,7 +14,7 @@ A simple Ethereum-based decentralized application (dapp) where you can create, o
 
 ## Running Locally
 
-Clone this repo to your local machine and install the dependencies as follows:
+Step 1. Clone this repo to your local machine and install the dependencies as follows:
 
 ```bash
 git clone https://github.com/tian0/membership-nft.git
@@ -24,14 +24,9 @@ npm install
 
 A contract deployment instance is available on Ethereum's Rinkeby testnet, at the following address: 
 `0x52B371514FcAb15D390d0B9dA5E6CF2D75Be3411`
+If you wish to interact with this contract, skip to Step 4.
 
-To deploy your own Membership contract instance in the terminal, run:
-```bash
-truffle compile
-truffle migrate --network rinkeby
-```
-
-To deploy locally, (globally) install and run an Ethereum development testnet using [Ganache](https://www.trufflesuite.com/ganache):
+Step 2. To deploy locally, install and run an Ethereum development testnet using [Ganache](https://www.trufflesuite.com/ganache):
 
 ```bash
 npm install -g ganache-cli
@@ -45,7 +40,14 @@ truffle compile
 truffle migrate
 ```
 
-Finally, install the client dependencies and serve the application in the development environment via:
+Step 3. To deploy on Rinkeby, first you must delete the `client/contracts` folder. Secondly, create a file called `.env` which holds your own Infura Project ID, and a wallet mnemonic phrase as shown in the file provided `.env example`. Then deploy your Membership constract instance in the terminal, by running:
+
+```bash
+truffle compile
+truffle migrate --network rinkeby
+```
+
+Step 4. Finally, install the client dependencies and serve the application in the development environment via:
 
 ```bash
 cd client
@@ -53,21 +55,20 @@ npm install
 npm run start
 ```
 
-With Metamask installed and connected to Rinkeby, you should be able to join an existing Membership contract on Rinkeby provided at `0x52B371514FcAb15D390d0B9dA5E6CF2D75Be3411`
+With Metamask installed and connected to Rinkeby, you are able to join the existing Membership contract provided [here](https://rinkeby.etherscan.io/address/0x52B371514FcAb15D390d0B9dA5E6CF2D75Be3411)
 
 The member dashboard will allow you to see:
-1. Membership Contract Address
+1. Membership Contract Address with it's corresponding Blockie
 2. Your Ethereum address
 3. Your ETH balance:
 4. Your Membership tokenId
 5. The total number of members
 6. The Network ID (4 is Rinkeby)
 
-You can gift a membership to a new member by pasting their address and clicking the [Gift-Membership] button.
+You can also gift a membership to a new member by pasting their address and clicking the [Gift-Membership] button.
 
 If you deploy your own Membership contract instance, the owner dashboard will allow you to see:
-The member dashboard will allow you to see:
-1. Membership Contract Address
+1. Membership Contract Address with it's corresponding Blockie
 2. Your Ethereum address
 3. Your ETH balance:
 4. Your Membership tokenId
