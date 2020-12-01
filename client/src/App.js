@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import MembershipContract from "./contracts/Membership.json";
 import getWeb3 from "./getWeb3";
-import ens from "../node_modules/ethereum-ens"
+import ens from "../node_modules/ethereum-ens";
 import makeBlockie from "ethereum-blockies-base64";
 
 import "./App.css";
@@ -33,7 +33,6 @@ class App extends Component {
     var MembershipInstance;
     Membership.deployed().then((instance) => {
       MembershipInstance = instance;
-      console.log("intantiated and deployed");
       return instance;
     });
   }
@@ -80,7 +79,7 @@ class App extends Component {
     this.instantiateContract();
     const { account, contract } = this.state;
     const contract_address = contract._address;
-    this.setState({ contractAddress: contract_address})
+    this.setState({ contractAddress: contract_address });
     const contractOwner = await contract.methods.owner().call();
     // Update state with the result.
     if (contractOwner === account) {
@@ -89,12 +88,11 @@ class App extends Component {
 
     const memberBalance = await contract.methods.balanceOf(account).call();
     const id = await contract.methods.tokenId(account).call();
-    const count = await contract.methods.getMembersLength().call()
-    console.log(id);
+    const count = await contract.methods.getMembersLength().call();
 
     // Update state with the result.
     if (parseInt(memberBalance) > 0) {
-      this.setState({ isMember: true, tokenID: id , membersNumber: count});
+      this.setState({ isMember: true, tokenID: id, membersNumber: count });
     }
   };
 
@@ -187,61 +185,78 @@ class App extends Component {
     else if (this.state.isOwner)
       return (
         <div className="isOwner">
-          <h2>Your account owns this Membership contract!</h2>
-          <h3>Member Management</h3>
-          <p>Enter an Ethereum Address:</p>
-          <input
-            type="text"
-            size="50"
-            id="address"
-            onChange={this.handleAddressInput}
-          />
-          <button onClick={this.handleGift.bind(this)}>Gift Membership</button>
-          <button onClick={this.handleRemove.bind(this)}>Remove Member</button>
-          <br></br>
-          <h3>Contract Management</h3>
-          <button onClick={this.handlePause.bind(this)}>Pause Contract</button>
-          <button onClick={this.handleUnpause.bind(this)}>Unpause Contract</button>
-          <br></br>
-          <br></br>
-          <button onClick={this.handleKill.bind(this)}>Kill Contract</button>
+          <div className="row">
+            <h2>Your account owns this Membership contract!</h2>
+            <img src={makeBlockie(this.state.contractAddress)} />
+            <p>Membership Contract Address: {this.state.contractAddress}</p>
+            <p>Your Account: {this.state.account}</p>
+            <p>Your ETH Balance: {this.state.balance} ETH</p>
+            <p>Your Membership tokenId is {this.state.tokenID} </p>
+            <p>There are a total of {this.state.membersNumber} members</p>
+
+            <h3>Member Management</h3>
+            <p>Enter an Ethereum Address:</p>
+            <input
+              type="text"
+              size="50"
+              id="address"
+              onChange={this.handleAddressInput}
+            />
+            <br></br>
+            <button onClick={this.handleGift.bind(this)}>
+              Gift Membership
+            </button>
+            <button onClick={this.handleRemove.bind(this)}>
+              Remove Member
+            </button>
+            <br></br>
+            <div className="management">
+              <h3>Contract Management</h3>
+              <button onClick={this.handlePause.bind(this)}>
+                Pause Contract
+              </button>
+              <button onClick={this.handleUnpause.bind(this)}>
+                Unpause Contract
+              </button>
+              <br></br>
+              <br></br>
+              <button onClick={this.handleKill.bind(this)}>
+                Kill Contract
+              </button>
+            </div>
+          </div>
         </div>
       );
     else if (this.state.isMember)
       return (
         <div className="App">
-          <nav className="navbar">
-            <h2 href="" className="pure-menu-heading pure-menu-link">
-              Congratulations! You are a Member
-            </h2>
-          </nav>
           <div className="row">
-            <div className="column right">
-              <img src={makeBlockie(this.state.contractAddress)} />
-              <p>Membership Contract Address: {this.state.contractAddress}</p>
-              <p>Your Account: {this.state.account}</p>
+            <img src={makeBlockie(this.state.contractAddress)} />
+            <p>Membership Contract Address: {this.state.contractAddress}</p>
+            <p>Your Account: {this.state.account}</p>
 
-              <p>Your ETH Balance: {this.state.balance} ETH</p>
-              <p>Your Membership tokenId is {this.state.tokenID} </p>
-              <p>There are a total of {this.state.membersNumber} members</p>
-              <p>Network ID:{" "}{this.state.network ? `${this.state.network}` : "No connection"}</p>
-            </div>
+            <p>Your ETH Balance: {this.state.balance} ETH</p>
+            <p>Your Membership tokenId is {this.state.tokenID} </p>
+            <p>There are a total of {this.state.membersNumber} members</p>
+            <p>
+              Network ID:{" "}
+              {this.state.network ? `${this.state.network}` : "No connection"}
+            </p>
           </div>
-          <main className="row">
+          <div className="row">
             <div className="pure-g">
               <div className="pure-u-1-1">
                 <h3>Gift a Membership!</h3>
                 <p>Enter an Ethereum Address:</p>
                 <input
-                  type="text"
-                  size="50"
-                  id="address"
-                  onChange={this.handleAddressInput}
-                />
-                <button onClick={this.handleGift.bind(this)}>Gift Membership</button>
+                  type="text" size="50" id="address" onChange=
+                  {this.handleAddressInput}/>
+                <button onClick={this.handleGift.bind(this)}>
+                  Gift Membership
+                </button>
               </div>
             </div>
-          </main>
+          </div>
         </div>
       );
     else if (!this.state.isMember)
@@ -249,7 +264,9 @@ class App extends Component {
         <div className="notMember">
           You are not a Member yet
           <br></br>
-          <button onClick={this.handleJoin.bind(this)}>Become a Member Now!</button>
+          <button onClick={this.handleJoin.bind(this)}>
+            Click to become a Member!
+          </button>
         </div>
       );
   }

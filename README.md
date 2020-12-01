@@ -1,6 +1,6 @@
 # Membership NFT
 
-A simple Ethereum-based decentralized application (dapp) where you can own, obtain, and gift non-fungible membership tokens. Based on the [ERC-721](https://erc721.org) standard, these memberships are non-transferrable and clear of user approvals making them nontransferable while also avoiding re-sale in secondary markets. Holding them in an ethereum wallet will enable access to the content of functions enabled for members by the Membership contract owner.
+A simple Ethereum-based decentralized application (dapp) where you can create, obtain, and gift non-fungible membership tokens. Based on the [ERC-721](https://erc721.org) standard, these memberships are clear of user approvals making them nontransferable while also avoiding re-sale in secondary markets. Holding them in an ethereum wallet will grant access to the content enabled for members by the Membership contract owner in their front-end.
 
 ---
 
@@ -23,7 +23,7 @@ npm install
 ```
 
 A contract deployment instance is available on Ethereum's Rinkeby testnet, at the following address: 
-` `
+`0xb8D88dB5cf4E183904A35b8FE9eD2516c6c8D3F6`
 
 To deploy your own Membership contract instance in the terminal, run:
 ```bash
@@ -53,7 +53,8 @@ npm install
 npm run start
 ```
 
-With Metamask installed and connected to Rinkeby, you should be able to Join the existing Membership contract on Rinkeby provided at ` `
+With Metamask installed and connected to Rinkeby, you should be able to join an existing Membership contract on Rinkeby provided at `0xb8D88dB5cf4E183904A35b8FE9eD2516c6c8D3F6`
+
 The member dashboard will allow you to see:
 1. Membership Contract Address
 2. Your Ethereum address
@@ -64,6 +65,15 @@ The member dashboard will allow you to see:
 
 You can gift a membership to a new member by pasting their address and clicking the [Gift-Membership] button.
 
+If you deploy your own Membership contract instance, the owner dashboard will allow you to see:
+The member dashboard will allow you to see:
+1. Membership Contract Address
+2. Your Ethereum address
+3. Your ETH balance:
+4. Your Membership tokenId
+5. The total number of members
+
+Owners can gift a new membership or remove a member by pasting an address and clicking the [Gift-Membership] or [Remove-Membership] buttons. The Contract Management Panel allows the owner to [Pause], [Unpause], and [Kill] the contract.
 
 ## Built With
 

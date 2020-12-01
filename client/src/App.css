@@ -34,5 +34,11 @@
 }
 
 .isOwner {
-  background-color: thistle;
+  background-color: rgb(137, 137, 216);
+  text-align: center;
+}
+
+.management {
+  background-color: rgb(163, 62, 32);
+  text-align: center;
 }

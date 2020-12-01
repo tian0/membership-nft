@@ -34,7 +34,7 @@ contract Membership is ERC721, Ownable, Pausable {
 
     /// @notice Enroll new member only if they are not already enrolled
     /// @dev Minted new member token approvals are not given, token becomes untransferrable and unsellable
-    function newMember() payable
+    function newMember()
     public notMember(msg.sender) whenNotPaused()
     {
         require(members.length < 2**256-1 );
@@ -46,9 +46,9 @@ contract Membership is ERC721, Ownable, Pausable {
         _mint(msg.sender, tokenId[msg.sender]);
     }
 
-    /// @notice Gift membership to new member from existing member
+    /// @notice Gift membership to new member from existing member, only if they are not already enrolled
     /// @dev Minted new member token approvals are cleared, token becomes untransferrable and unsellable
-    /// @param _member The membership recipient address
+    /// @param _member The new membership recipient address
     function giftMembership(address _member) 
     public isMember(msg.sender) notMember(_member) whenNotPaused()
     {
@@ -86,7 +86,6 @@ contract Membership is ERC721, Ownable, Pausable {
     function removeMember(address _member)
     public onlyOwner()
     {
-        // require(msg.sender == owner, "Caller is not owner");
         uint _token = tokenId[_member];
         enrolled[_member] = false;
         delete members[_token];
