@@ -4,7 +4,7 @@ A simple Ethereum-based decentralized application (dapp) where you can create, o
 
 ---
 
-![Membership NFT](https://imgur.com/dIT8bYh.gif)
+![Membership NFT](https://imgur.com/Ac1hqcn.gif)
 
 
 ## Prerequisites
@@ -23,7 +23,7 @@ npm install
 ```
 
 A contract deployment instance is available on Ethereum's Rinkeby testnet, at the following address: 
-`0xb8D88dB5cf4E183904A35b8FE9eD2516c6c8D3F6`
+`0x52B371514FcAb15D390d0B9dA5E6CF2D75Be3411`
 
 To deploy your own Membership contract instance in the terminal, run:
 ```bash
@@ -53,7 +53,7 @@ npm install
 npm run start
 ```
 
-With Metamask installed and connected to Rinkeby, you should be able to join an existing Membership contract on Rinkeby provided at `0xb8D88dB5cf4E183904A35b8FE9eD2516c6c8D3F6`
+With Metamask installed and connected to Rinkeby, you should be able to join an existing Membership contract on Rinkeby provided at `0x52B371514FcAb15D390d0B9dA5E6CF2D75Be3411`
 
 The member dashboard will allow you to see:
 1. Membership Contract Address

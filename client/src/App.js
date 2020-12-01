@@ -106,16 +106,6 @@ class App extends Component {
       .then((result) => {
         return this.runConnect();
       });
-    // this.setState(this.runConnect)
-    // Get the value from the contract to prove it worked.
-    // const response = await contract.methods.getMembers().call();
-    // var value = 3
-    // contract.methods.set(value).send({ from: accounts[0] })
-    // .then(result => {
-    //   return contract.methods.get().call()
-    // }).then(result => {
-    //   return this.setState({ storageValue: result })
-    // })
   }
   handleAddressInput = (event) => {
     this.setState({ input: event.target.value });
