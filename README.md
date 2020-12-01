@@ -46,7 +46,7 @@ A total of 8 tests are provided in `test/membership.js` which make use of the co
 truffle test
 ```
 
-Step 3. To deploy on Rinkeby, first you must delete the `client/contracts` folder. Secondly, create a file called `.env` which holds your own Infura Project ID, and a wallet mnemonic phrase as shown in the file provided `.env example`. Then deploy your Membership constract instance in the terminal, by running:
+Step 3. To deploy on Rinkeby, first you must delete the `client/contracts` folder. Secondly, create a file called `.env` which holds your own Infura Project ID, and a wallet mnemonic phrase as shown in `.env example`. Then deploy your Membership constract instance in the terminal, by running:
 
 ```bash
 truffle compile
