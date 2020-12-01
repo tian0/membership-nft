@@ -26,18 +26,19 @@ A contract deployment instance is available on Ethereum's Rinkeby testnet, at th
 `0x52B371514FcAb15D390d0B9dA5E6CF2D75Be3411`
 If you wish to interact with this contract, skip to Step 4.
 
-Step 2. To deploy locally, install and run an Ethereum development testnet using [Ganache](https://www.trufflesuite.com/ganache):
+Step 2. To deploy locally, first install and run an Ethereum development testnet using [Ganache](https://www.trufflesuite.com/ganache):
 
 ```bash
 npm install -g ganache-cli
 ganache-cli
 ```
 
-After ganache launches, run the following to compile and deploy the Membership contract:
+After ganache launches, run the following to compile, deploy and test the Membership contract:
 
 ```bash
 truffle compile
 truffle migrate
+truffle test
 ```
 
 Step 3. To deploy on Rinkeby, first you must delete the `client/contracts` folder. Secondly, create a file called `.env` which holds your own Infura Project ID, and a wallet mnemonic phrase as shown in the file provided `.env example`. Then deploy your Membership constract instance in the terminal, by running:
