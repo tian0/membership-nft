@@ -4,7 +4,7 @@ A simple Ethereum-based decentralized application (dapp) where you can create, o
 
 ---
 
-![Membership NFT](https://i.imgur.com/pBY8VX2.gif)
+![Membership NFT](https://imgur.com/Zycj59D)
 
 
 ## Prerequisites
