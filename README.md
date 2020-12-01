@@ -33,11 +33,16 @@ npm install -g ganache-cli
 ganache-cli
 ```
 
-After ganache launches, run the following to compile, deploy and test the Membership contract:
+After ganache launches, run the following to compile, deploy the Membership contract:
 
 ```bash
 truffle compile
 truffle migrate
+```
+
+A total of 8 tests are provided in `test/membership.js` which make use of the contract functions. Run them using:
+
+```bash
 truffle test
 ```
 
