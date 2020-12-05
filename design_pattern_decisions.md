@@ -13,7 +13,7 @@
    [ERC721.sol](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v2.5.0/contracts/token/ERC721/ERC721.sol)
     Openzepellin's ERC721 was implemented via inheritance to issue a membership token with no monetary value and whose approvals could be restricted such that these memberships are not transferrable, thus avoiding a secondary market for the membership if there were ever a price set by the owner. Notice the _mint() function is called upon enrolling new members but approve() is not. When a member is removed, the _burn() function assigns their tokenId to the burn address.
 
-   A kill function was implemented to allow the contract owner to call selfdestruct from their designated address
+   A kill function was implemented to allow the contract owner to call selfdestruct from their designated address:
 
     ```bash
     function kill() 
@@ -22,15 +22,17 @@
         selfdestruct(address(uint160(owner()))); // cast owner to address payable
     }
     ```
+
     
     A fallback() function which reverts was implemented to avoid accidental or forced deposits into the contract, preventing funds from becoming locked in the contract, and to protect the owner and members from funds being locked in a working membership contract.
-    
+
 
     ```bash
     function fallback() external payable {
         revert();
     }
     ```
+
 
 ■  	Why did I choose the patterns?
     These design patterns were chosen to reduce and mitigate attack vectors. The Openzepellin libraries are tried and tested, so they were preferred to modifiers that could serve similar purposes. 
