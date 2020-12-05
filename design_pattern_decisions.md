@@ -22,8 +22,9 @@
         selfdestruct(address(uint160(owner()))); // cast owner to address payable
     }
     ```
-
+    
     A fallback() function which reverts was implemented to avoid accidental or forced deposits into the contract, preventing funds from becoming locked in the contract, and to protect the owner and members from funds being locked in a working membership contract.
+    
 
     ```bash
     function fallback() external payable {
