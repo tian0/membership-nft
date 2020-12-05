@@ -1,10 +1,12 @@
 #  Design Pattern Decisions
 
 ○  	Implemented a circuit breaker (emergency stop) pattern: 
+
    [Pausable.sol](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v2.5.0/contracts/lifecycle/Pausable.sol)
     Openzepellin's pausable was implemented via inheritance in case the contract owner wished to pause it in the event that gas costs become too high to issue new memberships, or in the event that there is a major vulnerability discovered. This would allow other contract functions that may be of use to the owner or external contracts to migrate existing users to a revised or upgraded contract version while pausing state changes.
 
-○  	What other design patterns have you used / not used? 
+○  	What other design patterns have you used / not used?
+
    [Ownable.sol](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v2.5.0/contracts/ownership/Ownable.sol)
     Openzepellin's ownable contract was implemented via inheritance to give contract owner the ability to execute administrative functions such as Pause and Kill the contract, as well removing existing members.
 
